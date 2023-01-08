@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="contact.css">
+    <script src="contact.js"></script>
+
+    <title>Contact | Gregor Verwijmeren</title>
+</head>
+<body>
+    <header class="header">
+        <div class="headCont">
+            <h1 class="logoName"><b>g</b>regor <b>v</b>erwijmeren</h1>
+            <p class="headSchrijver">schrijver</p>
+            <div class="noDropMenu">
+                <ul class="navbar">
+                    <li class="links"><a href="../">home</a></li>
+                    <li class="links"><a href="../#biografie">biografie</a></li>
+                    <li class="links"><a href="../geluiden/">geluiden</a></li>
+                    <li class="links"><a href="../playlist/">playlist</a></li>
+                    <li class="links"><a href="../#reviews">recensies</a></li>
+                    <li class="links"><a href="../#videos">interviews</a></li>
+                    <li class="links"><a href="../#essay">essay</a></li>
+                    <li class="links"><a href="../agenda/">nieuws & agenda</a></li>
+                    <li class="links current"><a href="./">contact</a></li>
+                </ul>
+            </div>
+            <div class="dropMenu">
+                <div id="sidebar">
+                    <div class="toggle-btn" onclick="myFunction(this)">
+                        <div class="bar1"></div>
+                        <div class="bar2"></div>
+                        <div class="bar3"></div>
+                    </div>
+        
+                    <ul id="menu">
+                        <li><a href="../" class="headLinks">home</a></li>
+                        <li><a class="headLinks" href="#">biografie</a></li>
+                        <li><a class="headLinks" href="./">geluiden</a></li>
+                        <li><a class="headLinks" href="../playlist/">playlist</a></li>
+                        <li><a class="headLinks" href="#">recensies</a></li>
+                        <li><a class="headLinks" href="#">interviews</a></li>
+                        <li><a class="headLinks" href="#">essay</a></li>
+                        <li><a class="headLinks" href="../agenda/">nieuws & agenda</a></li>
+                        <li><a class="headLinks" href="#">contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <h2>Contact</h2>
+        <p>Voor lezingen en optredens neemt u contact op met De Schrijverscentrale (voorheen Stichting Schrijver, School, Samenleving): info@deschrijverscentrale.nl, telefoon 020 – 6234923<br> www.deschrijverscentrale.nl<br><br>Voor persoonlijke reacties en vragen: vul het contactformulier in.</p>
+        <form action="./">
+            <label for="#name">hele naam<small class="moet">*</small></label>
+            <input type="text" id="name">
+            <label for="#mail">e-mail<small class="moet">*</small></label>
+            <input type="text" id="mail">
+            <label for="#onderwerp">onderwerp</label>
+            <input type="text">
+            <label for="#textarea">bericht</label>
+            <textarea id="textarea" cols="30" rows="10"></textarea>
+            <input type="submit" value="verzenden" class="submit">
+        </form>
+        <p class="moetExplain"><small class="moet">*</small> is verplicht</p>
+    </div>
+
+    <div class="footer">
+        <h3>© 2023 Gregor Verwijmeren</h3>
+    </div>
+</body>
+</html>

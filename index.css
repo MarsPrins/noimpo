@@ -365,6 +365,10 @@ html {
   text-transform: capitalize;
 }
 
+.current {
+  color: var(--txtBlue) !important;
+}
+
 .links a {
   text-decoration: none;
   color: var(--txtBlack);
@@ -414,6 +418,15 @@ html {
   font-family: var(--thinFont);
   font-size: 16px;
   font-weight: 300;
+}
+
+.biografieParagraph a {
+  color: var(--hover);
+  transition: .4s;
+}
+
+.biografieParagraph a:hover {
+  color: var(--txtBlue);
 }
 
 .bob {
@@ -526,8 +539,19 @@ html {
   font-family: var(--mainFont);
   font-size: 20px;
   min-height: 500px;
-  margin-top: 10%;
+  width: 90%;
+  margin: auto;
+  margin-top: 5%;
   box-shadow: 0 0 10px 5px var(--shadowBlue);
+}
+
+.boekBeschrijving a {
+  color: var(--txtBlue);
+  transition: .4s;
+}
+
+.boekBeschrijving a:hover {
+  color: var(--hover);
 }
 
 
@@ -575,7 +599,8 @@ html {
 
 .video1 {
   background-color: var(--bg1);
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: 300px;
   box-shadow: 0 0 10px 5px var(--shadowBlue);
 }
@@ -595,7 +620,8 @@ html {
 
 .video2 {
   background-color: var(--bg1);
-  width: 100%;
+  width: 90%;
+  margin: auto;
   height: 500px;
   margin-top: 100px;
   box-shadow: 0 0 50px 5px var(--shadowBlue);
@@ -604,6 +630,27 @@ html {
 .videoIframe {
   width: 100%;
   height: 400px;
+}
+
+
+
+
+
+
+.footer {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.684);
+  text-align: center;
+  margin-top: 400px;
+  color: var(--txtWhite);
+}
+
+.footer h3 {
+  font-family: var(--thinFont);
+  font-weight: 100;
+  position: relative;
+  top: 10px;
 }
 
 
@@ -648,9 +695,13 @@ html {
     right: 25%;
     bottom: 0;
   }
+  .boekBeschrijving {
+    width: 100%;
+  }
   .video1 {
     width: 80%;
     height: 800px;
+    margin: 0;
   }
   .videoImg {
     height: 80%;
@@ -681,13 +732,17 @@ html {
     grid-template-columns: repeat(2, 1fr);
   }
   .boekBeschrijving {
-    height: 500px;
-    padding: 70px;
+    padding: 40px;
   }
   .reviews {
     grid-template-columns: repeat(2, 1fr);
   }
   .review:nth-child(odd) {
     margin-top: 200px;
+  }
+}
+@media only screen and (min-width: 1250px) {
+  .boekBeschrijving {
+    padding: 70px;
   }
 }

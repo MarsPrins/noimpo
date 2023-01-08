@@ -1,0 +1,395 @@
+/* andy bell 
+
+        /* Box sizing rules */
+        *,
+        *::before,
+        *::after {
+        box-sizing: border-box;
+        }
+
+        /* Remove default margin */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        blockquote,
+        dl,
+        dd {
+        margin: 0;
+        }
+
+        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+        ul[role='list'],
+        ol[role='list'] {
+        list-style: none;
+        }
+
+        /* Set core root defaults */
+        html:focus-within {
+        scroll-behavior: smooth;
+        }
+
+        /* Set core body defaults */
+        body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.5;
+        }
+
+        /* A elements that don't have a class get default styles */
+        a:not([class]) {
+        text-decoration-skip-ink: auto;
+        }
+
+        /* Make images easier to work with */
+        img,
+        picture {
+        max-width: 100%;
+        display: block;
+        }
+
+        /* Inherit fonts for inputs and buttons */
+        input,
+        button,
+        textarea,
+        select {
+        font: inherit;
+        }
+
+        /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+        @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+        scroll-behavior: auto;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        }
+/* andy bell end */
+
+@font-face {
+    font-family: 'Carlito';
+    src: URL('fonts/carlito.regular.ttf') format('truetype');
+  }
+
+:root {
+    --bg: rgb(233, 233, 233);
+    --bg1: rgb(244, 244, 244);
+    --BookCoverBG: #002132;
+    --hover: #00557f;
+    --shadow: rgba(42, 42, 42, 0.421);
+    --shadowBlue: #00436485; 
+    --line: #0059857c;
+
+    --txtBlue: #6693A6;
+    --txtWhite: #F4FFFF;
+    --txtBlack: #3d3d3d;
+
+    --titleFont: 'Carlito', sans-serif;
+    --mainFont: 'Carlito', sans-serif;
+    --thinFont: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--BookCoverBG);
+}
+
+
+.header {
+    width: 100vw;
+    height: 80px;
+    background-color: var(--bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: .4s;
+    box-shadow: -10px 0px 10px 2px var(--shadow);
+}
+
+.headCont {
+    position: relative;
+}
+
+.logoName {
+    font-size: 20px;
+    color: var(--txtBlack);
+    font-family: var(--titleFont);
+    padding: 20px 0 0 20px;
+    text-transform: capitalize;
+}
+
+.logoName b {
+    color: var(--hover);
+}
+
+.headSchrijver {
+    font-family: var(--mainFont);
+    font-style: italic;
+    color: var(--txtBlack);
+    padding: 0 0 0 20px;
+}
+
+#menu li {
+    display: block;
+    margin-left: 10%;
+}
+
+#menu li a{
+    text-decoration: none;
+    color: var(--txtBlack);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.dropMenu {
+    z-index: 21;
+}
+
+#sidebar {
+    position: absolute;
+    width: 110vw;
+    height: 100vh;
+    background: var(--bg);
+    right: -110vw;
+    transition: .4s;
+    top: 0;
+    z-index: 999;
+  }
+  
+  #sidebar.active {
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
+  }
+  
+  #sidebar ul li {
+    list-style: none;
+    color: var(--txtBlack);
+    font-size: 20px;
+    line-height: 10vh;
+    font-family: var(--mainFont);
+    text-align: center;
+  }
+
+  #menu {
+    text-align: center;
+    overscroll-behavior: contain;
+    padding-right: 15%;
+    padding-top: 10%;
+    display: block;
+  }
+  
+  #menu li a {
+    text-decoration: none;
+    color: var(--txtBlack);
+    font-family: var(--mainFont);
+    transition: .4s;
+    position: relative;
+    cursor: pointer;
+    text-transform: capitalize;
+  }
+
+  #menu li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--hover);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    z-index: 99;
+  }
+
+  #menu li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  #sidebar .toggle-btn {
+    position: absolute;
+    top: 15px;
+  }
+  
+  .toggle-btn {
+    display: inline-block;
+    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    left: -65px;
+  }
+
+  .toggle-btn.change {
+    left: 20vw;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--txtBlack);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    background-color: var(--txtBlack);
+    left: 0;
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: var(--txtBlack);
+    left: 0;
+}
+
+.noDropMenu {
+  position: relative;
+  width: 60%;
+  height: 100px;
+  float: right;
+  visibility: hidden;
+  translate: -200%;
+}
+
+.navbar {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  bottom: 90px;
+}
+
+.links {
+  display: inline-block;
+  list-style: none;
+  margin-right: 3.5vmin;
+  font-family: var(--mainFont);
+  text-transform: capitalize;
+}
+
+.current a {
+    color: var(--txtBlue) !important;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--txtBlack);
+  transition: .4s;
+}
+
+.links a:hover {
+  color: var(--hover);
+}
+
+
+
+
+
+.content {
+    margin: 300px auto auto;
+    background-color: var(--bg1);
+    width: 90%;
+    padding: 40px;
+    box-shadow: 0 0 10px 5px var(--shadowBlue);
+}
+
+.content h2 {
+    font-family: var(--txtBlack);
+    font-size: 30px;
+    text-transform: capitalize;
+    font-family: var(--titleFont);
+    margin-bottom: 20px;
+}
+
+.content p {
+    color: var(--txtBlack);
+    font-family: var(--thinFont);
+    font-weight: 300;
+    margin: 20px 0 20px 0;
+}
+
+
+
+
+
+.footer {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.684);
+    text-align: center;
+    margin-top: 400px;
+    color: var(--txtWhite);
+}
+
+.footer h3 {
+    font-family: var(--thinFont);
+    font-weight: 100;
+    position: relative;
+    top: 10px;
+}
+
+
+
+
+
+
+
+@media only screen and (min-width: 700px) {
+    .toggle-btn.change {
+      left: 15vw;
+    }
+    .logoName {
+      font-size: 40px;
+      position: relative;
+      bottom: 20px;
+      left: 5%;
+    }
+    .headSchrijver {
+      padding: 0;
+      position: relative;
+      bottom: 30px;
+      left: 8%;
+    }
+    .content {
+        width: 60%;
+        margin-left: 8%;
+    }
+    .content h2 {
+        font-size: 40px;
+    }
+}
+@media only screen and (min-width: 1000px) {
+    .dropMenu {
+      visibility: hidden;
+      translate: -200%;
+    }
+    .noDropMenu {
+      visibility: visible;
+      translate: 0;
+    }
+    .content {
+        width: 50%;
+        margin-left: 8%;
+    }
+}
