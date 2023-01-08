@@ -1,0 +1,693 @@
+
+
+/* andy bell 
+
+        /* Box sizing rules */
+        *,
+        *::before,
+        *::after {
+        box-sizing: border-box;
+        }
+
+        /* Remove default margin */
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        p,
+        figure,
+        blockquote,
+        dl,
+        dd {
+        margin: 0;
+        }
+
+        /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+        ul[role='list'],
+        ol[role='list'] {
+        list-style: none;
+        }
+
+        /* Set core root defaults */
+        html:focus-within {
+        scroll-behavior: smooth;
+        }
+
+        /* Set core body defaults */
+        body {
+        min-height: 100vh;
+        text-rendering: optimizeSpeed;
+        line-height: 1.5;
+        }
+
+        /* A elements that don't have a class get default styles */
+        a:not([class]) {
+        text-decoration-skip-ink: auto;
+        }
+
+        /* Make images easier to work with */
+        img,
+        picture {
+        max-width: 100%;
+        display: block;
+        }
+
+        /* Inherit fonts for inputs and buttons */
+        input,
+        button,
+        textarea,
+        select {
+        font: inherit;
+        }
+
+        /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+        @media (prefers-reduced-motion: reduce) {
+        html:focus-within {
+        scroll-behavior: auto;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+        }
+/* andy bell end */
+
+@font-face {
+    font-family: 'Carlito';
+    src: URL('fonts/carlito.regular.ttf') format('truetype');
+  }
+
+:root {
+    --bg: rgb(233, 233, 233);
+    --bg1: rgb(244, 244, 244);
+    --BookCoverBG: #002132;
+    --hover: #00557f;
+    --shadow: rgba(42, 42, 42, 0.421);
+    --shadowBlue: #00436485; 
+    --line: #0059857c;
+
+    --txtBlue: #6693A6;
+    --txtWhite: #F4FFFF;
+    --txtBlack: #3d3d3d;
+
+    --titleFont: 'Carlito', sans-serif;
+    --mainFont: 'Carlito', sans-serif;
+    --thinFont: 'Roboto', sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: var(--BookCoverBG);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.landingPage {
+    height: 108vh;
+    position: relative;
+}
+
+.landImg {
+    position: absolute;
+    background-image: url(img/book-vorm.png);
+    width: 250vw;
+    height: 110vh;
+    z-index: -1;
+    user-select: none;
+    -webkit-user-select: none;
+    left: -150%;
+}
+
+
+.landTitle {
+    font-size: 10vmin;
+    color: var(--txtBlue);
+    font-family: var(--titleFont);
+    margin-top: 3%;
+    margin-left: 5%;
+    letter-spacing: 5px;
+}
+
+.landSchrijver {
+    font-family: var(--titleFont);
+    color: var(--txtWhite);
+    font-style: italic;
+    position: relative;
+    left: 6%;
+    bottom: 3vmin;
+}
+
+.landNav {
+    line-height: 8vh;
+    margin-left: 4%;
+}
+
+.landNav li {
+    list-style: none;
+}
+
+.landLinks {
+    text-transform:capitalize;
+    color: var(--txtWhite);
+    font-family: var(--mainFont);
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+.landLinks:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--txtBlue);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.landLinks:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.header {
+    width: 100vw;
+    height: 80px;
+    background-color: var(--bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    translate: 0 -100px;
+    transition: .4s;
+    box-shadow: -10px 0px 10px 2px var(--shadow);
+}
+
+.header.active {
+    translate: 0 0;
+}
+
+.headCont {
+    position: relative;
+}
+
+.logoName {
+    font-size: 20px;
+    color: var(--txtBlack);
+    font-family: var(--titleFont);
+    padding: 20px 0 0 20px;
+    text-transform: capitalize;
+}
+
+.headSchrijver {
+    font-family: var(--mainFont);
+    font-style: italic;
+    color: var(--txtBlack);
+    padding: 0 0 0 20px;
+}
+
+#menu li {
+    display: block;
+    margin-left: 10%;
+}
+
+#menu li a{
+    text-decoration: none;
+    color: var(--txtBlack);
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.dropMenu {
+    z-index: 21;
+}
+
+#sidebar {
+    position: absolute;
+    width: 110vw;
+    height: 100vh;
+    background: var(--bg);
+    right: -110vw;
+    transition: .4s;
+    top: 0;
+    z-index: 999;
+  }
+  
+  #sidebar.active {
+    right: 0;
+    top: 0;
+    overflow-y: scroll;
+  }
+  
+  #sidebar ul li {
+    list-style: none;
+    color: var(--txtBlack);
+    font-size: 20px;
+    line-height: 10vh;
+    font-family: var(--mainFont);
+    text-align: center;
+  }
+
+  #menu {
+    text-align: center;
+    overscroll-behavior: contain;
+    padding-right: 15%;
+    padding-top: 10%;
+    display: block;
+  }
+  
+  #menu li a {
+    text-decoration: none;
+    color: var(--txtBlack);
+    font-family: var(--mainFont);
+    transition: .4s;
+    position: relative;
+    cursor: pointer;
+  }
+
+  #menu li a:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 5px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--hover);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    z-index: 99;
+  }
+
+  #menu li a:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  #sidebar .toggle-btn {
+    position: absolute;
+    top: 15px;
+  }
+  
+  .toggle-btn {
+    display: inline-block;
+    cursor: pointer;
+    max-width: 100%;
+    max-height: 100%;
+    position: fixed;
+    left: -65px;
+  }
+
+  .toggle-btn.change {
+    left: 20vw;
+  }
+  
+  .bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--txtBlack);
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+
+  .change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    background-color: var(--txtBlack);
+    left: 0;
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: var(--txtBlack);
+    left: 0;
+}
+
+.noDropMenu {
+  position: relative;
+  width: 60%;
+  height: 100px;
+  float: right;
+  visibility: hidden;
+  translate: -200%;
+}
+
+.navbar {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  bottom: 90px;
+}
+
+.links {
+  display: inline-block;
+  list-style: none;
+  margin-right: 3.5vmin;
+  font-family: var(--mainFont);
+  text-transform: capitalize;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--txtBlack);
+  transition: .4s;
+}
+
+.links a:hover {
+  color: var(--hover);
+}
+
+
+
+
+
+
+
+.biografie {
+  min-height: 600px;
+  width: 100%;
+  background-color: var(--BookCoverBG);
+  position: relative;
+}
+
+.biografieText {
+  background-color: var(--bg);
+  min-height: 500px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 5vw;
+  padding: 20px;
+  box-shadow: 0 0 6px 1px var(--shadowBlue);
+}
+
+.biografieTitle {
+  font-family: var(--mainFont);
+  font-size: 30px;
+  color: var(--txtBlack);
+}
+
+.biografieImage {
+  margin: 20px 20px 20px 0;
+  float: left;
+  padding-bottom: 50px;
+}
+
+.biografieParagraph {
+  font-family: var(--thinFont);
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.bob {
+  margin: 0.8075em 0;
+  width: 200px;
+  text-align: center;
+  display: block;
+  position: absolute;
+  top: 380px;
+}
+
+.bob small {
+  font-size: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+
+
+
+
+.boek {
+  width: 100%;
+  min-height: 600px;
+  background-color: var(--BookCoverBG);
+  position:relative;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 200px;
+}
+
+.boekCard {
+  height: 800px;
+  text-align: center;
+}
+
+.boekTitle {
+  color: var(--txtWhite);
+  font-size: 9vmin;
+  font-family: var(--mainFont);
+  text-transform: uppercase;
+  line-height: 60px;
+}
+
+.boekAuthor {
+  font-size: 30px;
+  font-family: var(--mainFont);
+  text-transform: capitalize;
+  color: var(--txtBlue);
+  font-weight: 100;
+  position: relative;
+  right: 10%;
+  bottom: 15px;
+  padding-bottom: 30px;
+}
+
+.boekCover {
+  height: 400px;
+  margin: auto;
+}
+
+.boekInfo {
+  color: var(--txtWhite);
+  font-size: 20px;
+  font-family: var(--mainFont);
+}
+
+.boekPrice {
+  font-size: 50px;
+  color: var(--txtWhite);
+  font-family: var(--mainFont);
+}
+
+.boekButton {
+  cursor: pointer;
+  height: 70px;
+}
+
+.boekButton button {
+  width: 80%;
+  height: 70px;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  border: solid 2px var(--txtBlue);
+  background-color: transparent;
+  font-size: 30px;
+  text-transform: capitalize;
+  color: var(--txtBlue);
+  font-family: var(--mainFont);
+  transition: .4s;
+  cursor: pointer;
+}
+
+.boekButton button:hover {
+  background-color: var(--hover);
+  color: var(--txtWhite);
+}
+
+.boekAlsoAvailable {
+  font-size: 20px;
+  color: var(--txtWhite);
+  font-family: var(--thinFont);
+  margin-top: 20px;
+}
+
+.boekBeschrijving {
+  background-color: var(--bg1);
+  padding: 40px;
+  font-family: var(--mainFont);
+  font-size: 20px;
+  min-height: 500px;
+  margin-top: 10%;
+  box-shadow: 0 0 10px 5px var(--shadowBlue);
+}
+
+
+
+
+
+.reviews {
+  padding-top: 100px;
+  padding-bottom: 200px;
+  min-height: 500px;
+  position: relative;
+  font-style: italic;
+  width: 90%;
+  margin: auto;
+  color: var(--txtWhite);
+  display: grid;
+  gap: 100px;
+}
+
+.reviewText {
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--line);
+}
+
+.reviewName {
+  margin-bottom: 10px;
+  font-style: normal;
+  color: var(--txtBlue);
+  font-family: var(--titleFont);
+  font-size: 25px;
+}
+
+.reviewText {
+  font-size: 20px;
+  font-family: var(--mainFont);
+}
+
+
+
+
+
+.videos {
+  min-height: 800px;
+}
+
+.video1 {
+  background-color: var(--bg1);
+  width: 100%;
+  height: 300px;
+  box-shadow: 0 0 10px 5px var(--shadowBlue);
+}
+
+.videoTitle {
+  font-family: var(--titleFont);
+  color: var(--txtBlack);
+  text-align: center;
+  padding: 20px;
+}
+
+.videoImg {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.video2 {
+  background-color: var(--bg1);
+  width: 100%;
+  height: 500px;
+  margin-top: 100px;
+  box-shadow: 0 0 50px 5px var(--shadowBlue);
+}
+
+.videoIframe {
+  width: 100%;
+  height: 400px;
+}
+
+
+
+
+
+
+
+
+@media only screen and (min-width: 500px) {
+    .landImg{
+        width: 100vw;
+        left: 30%;
+    }
+
+}
+@media only screen and (min-width: 700px) {
+  .toggle-btn.change {
+    left: 15vw;
+  }
+  .logoName {
+    font-size: 40px;
+    position: relative;
+    bottom: 20px;
+    left: 5%;
+  }
+  .headSchrijver {
+    padding: 0;
+    position: relative;
+    bottom: 30px;
+    left: 8%;
+  }
+  .biografieText {
+    width: 50%;
+    margin-left: 100px;
+    padding: 40px;
+  }
+  .bob {
+    top: 400px;
+  }
+  .boekAuthor {
+    right: 25%;
+    bottom: 0;
+  }
+  .video1 {
+    width: 80%;
+    height: 800px;
+  }
+  .videoImg {
+    height: 80%;
+    width: 90%;
+    margin: auto;
+  }
+  .video2 {
+    width: 80%;
+    height: 750px;
+    margin-left: 20%;
+  }
+  .videoIframe {
+    height: 80%;
+    width: 90%;
+    margin-left: 5%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .dropMenu {
+    visibility: hidden;
+    translate: -200%;
+  }
+  .noDropMenu {
+    visibility: visible;
+    translate: 0;
+  }
+  .boek {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .boekBeschrijving {
+    height: 500px;
+    padding: 70px;
+  }
+  .reviews {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .review:nth-child(odd) {
+    margin-top: 200px;
+  }
+}
